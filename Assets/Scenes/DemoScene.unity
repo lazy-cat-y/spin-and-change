@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bouncyball
       objectReference: {fileID: 0}
+    - target: {fileID: 6399817581571245254, guid: 3445b1f484f5e444cbf72131f3cfa29c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7551467210523565012, guid: 3445b1f484f5e444cbf72131f3cfa29c, type: 3}
       propertyPath: m_Enabled
       value: 1
