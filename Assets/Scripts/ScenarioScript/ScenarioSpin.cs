@@ -8,6 +8,7 @@ public class ScenarioSpin : MonoBehaviour
     private float rotationAngle = 45f;
     private float rotationDuration = 0.5f;
     private bool isRotating = false;
+    private bool canRotate = true;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,10 @@ public class ScenarioSpin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canRotate)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.A) && !isRotating)
         {
             StartCoroutine(SmoothRotate(rotationAngle)); 
@@ -46,4 +51,10 @@ public class ScenarioSpin : MonoBehaviour
         transform.rotation = endRotation; // 确保最终角度准确
         isRotating = false;
     }
+
+    public void DisableRotation()
+    {
+        canRotate = false;
+    }
+
 }
