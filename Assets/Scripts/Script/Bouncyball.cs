@@ -6,6 +6,10 @@ public class BouncyBall : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool gravityReversed = false; // Tracks the current gravity state
+    private bool isOnSandpaper = false; // Tracks if the ball is on sandpaper
+    public float shrinkRate = 0.1f; // decrease rate
+    public float minScale = 0.2f; // minimum scale
+    private Vector3 originalScale; // original scale of the ball
 
     // Reference to the ScenarioSpin script
     public ScenarioSpin scenarioSpin;
@@ -19,6 +23,8 @@ public class BouncyBall : MonoBehaviour
         {
             scenarioSpin = FindObjectOfType<ScenarioSpin>();
         }
+
+        originalScale = transform.localScale; // Save the original scale of the ball
     }
 
     void Update()
@@ -38,6 +44,49 @@ public class BouncyBall : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
             }
         }
+
+        // Logic to decrease the size of the ball
+        if (isOnSandpaper && IsMoving())
+        {
+            ShrinkPlayer();
+        } else
+        {
+            // reset the scale of the ball
+            transform.localScale = originalScale;
+        }
+    }
+
+    // --------------------------------------------------------------
+    // Decrease the size of the ball
+    private void ShrinkPlayer()
+    {
+        if (transform.localScale.x > minScale && transform.localScale.y > minScale)
+        {
+            transform.localScale -= new Vector3(shrinkRate, shrinkRate, 0) * Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sandpaper"))
+        {
+            isOnSandpaper = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sandpaper"))
+        {
+            isOnSandpaper = false;
+        }
+    }
+
+    // --------------------------------------------------------------
+    // Check if the ball is moving
+    private bool IsMoving()
+    {
+        return Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f;
     }
 }
 
