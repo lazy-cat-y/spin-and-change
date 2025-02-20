@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\USC\\CSCI526\\Section2\\Demo_1\\spin-and-change\\",
+  "WorkspaceRootPath": "D:\\USC\\CSCI526\\Section2\\Demo_2\\spin-and-change\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{57131B28-9A78-F0BA-FC60-D9F85234C8BA}|Assembly-CSharp.csproj|d:\\usc\\csci526\\section2\\demo_1\\spin-and-change\\assets\\scripts\\scenarioscript\\scenariospin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57131B28-9A78-F0BA-FC60-D9F85234C8BA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenarioscript\\scenariospin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57131B28-9A78-F0BA-FC60-D9F85234C8BA}|Assembly-CSharp.csproj|D:\\USC\\CSCI526\\Section2\\Demo_1\\spin-and-change\\assets\\scripts\\scenarioscript\\ending.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57131B28-9A78-F0BA-FC60-D9F85234C8BA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenarioscript\\ending.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57131B28-9A78-F0BA-FC60-D9F85234C8BA}|Assembly-CSharp.csproj|d:\\usc\\csci526\\section2\\demo_2\\spin-and-change\\assets\\scripts\\scenarioscript\\windarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57131B28-9A78-F0BA-FC60-D9F85234C8BA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenarioscript\\windarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Ending.cs",
-              "DocumentMoniker": "D:\\USC\\CSCI526\\Section2\\Demo_1\\spin-and-change\\Assets\\Scripts\\ScenarioScript\\Ending.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ScenarioScript\\Ending.cs",
-              "ToolTip": "D:\\USC\\CSCI526\\Section2\\Demo_1\\spin-and-change\\Assets\\Scripts\\ScenarioScript\\Ending.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScenarioScript\\Ending.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T05:21:21.113Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ScenarioSpin.cs",
-              "DocumentMoniker": "D:\\USC\\CSCI526\\Section2\\Demo_1\\spin-and-change\\Assets\\Scripts\\ScenarioScript\\ScenarioSpin.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ScenarioScript\\ScenarioSpin.cs",
-              "ToolTip": "D:\\USC\\CSCI526\\Section2\\Demo_1\\spin-and-change\\Assets\\Scripts\\ScenarioScript\\ScenarioSpin.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScenarioScript\\ScenarioSpin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "WindArea.cs",
+              "DocumentMoniker": "D:\\USC\\CSCI526\\Section2\\Demo_2\\spin-and-change\\Assets\\Scripts\\ScenarioScript\\WindArea.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScenarioScript\\WindArea.cs",
+              "ToolTip": "D:\\USC\\CSCI526\\Section2\\Demo_2\\spin-and-change\\Assets\\Scripts\\ScenarioScript\\WindArea.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScenarioScript\\WindArea.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T04:16:17.575Z",
+              "WhenOpened": "2025-02-20T06:38:42.683Z",
               "EditorCaption": ""
             }
           ]
