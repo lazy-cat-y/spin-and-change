@@ -8,80 +8,61 @@ public class ScenarioSpin : MonoBehaviour
     private float rotationAngle = 45f;
     private float rotationDuration = 0.5f;
     private bool isRotating = false;
-    private bool canRotate = true;
+    private bool canMove = true;
 
-    // Counters
+
     public int maxRotations = 5;
     public int maxGravityFlips = 3;
     public int remainingRotations;
     public int remainingGravityFlips;
+    // Moves Counter
+    public int maxMoves = 8; // Total moves for both rotations and gravity flips
+    public int movesLeft;
 
-    // Text References
-    public TMP_Text rotationCounterText;
-    public TMP_Text gravityCounterText;
+    // Text Reference
+    public TMP_Text movesCounterText;
 
     // Track gravity flip state
     private bool isGravityFlipped = true;
 
-    // Start is called before the first frame update
     void Start()
     {
-        remainingRotations = maxRotations;
-        remainingGravityFlips = maxGravityFlips;
-        // Initialize the UI to display counter
+        movesLeft = maxMoves;
         UpdateUI();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        if (!canRotate)
+        if (!canMove || movesLeft <= 0)
         {
             return;
         }
 
-        if (remainingGravityFlips <= 0)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A) && !isRotating && remainingRotations > 0)
+        if (Input.GetKeyDown(KeyCode.A) && !isRotating && movesLeft > 0)
         {
             StartCoroutine(SmoothRotate(rotationAngle));
-            remainingRotations--;  // Decrease rotation count
+            movesLeft--;
             UpdateUI();
         }
-        if (Input.GetKeyDown(KeyCode.D) && !isRotating && remainingRotations > 0)
+        if (Input.GetKeyDown(KeyCode.D) && !isRotating && movesLeft > 0)
         {
             StartCoroutine(SmoothRotate(-rotationAngle));
-            remainingRotations--;  // Decrease rotation count
+            movesLeft--;
             UpdateUI();
         }
-        // Flip Gravity (G Key)
-        if (Input.GetKeyDown(KeyCode.G) && remainingGravityFlips > 0)
-        {
-            // Flip gravity direction
-            if (!isGravityFlipped)
-            {
-                Physics2D.gravity = new Vector2(0, -9.81f); // Flip gravity downwards
-                isGravityFlipped = true;  // Mark gravity as flipped
-            }
-            else
-            {
-                Physics2D.gravity = new Vector2(0, 9.81f); // Restore gravity to normal
-                isGravityFlipped = false;  // Mark gravity as normal
-            }
 
-            remainingGravityFlips--;  // Decrease gravity flip count
-            UpdateUI();  // Update the UI after gravity flip
-        } 
+        if (Input.GetKeyDown(KeyCode.G) && movesLeft > 0)
+        {
+            Physics2D.gravity = isGravityFlipped ? new Vector2(0, -9.81f) : new Vector2(0, 9.81f);
+            isGravityFlipped = !isGravityFlipped;
+            movesLeft--;
+            UpdateUI();
+        }
     }
 
     IEnumerator SmoothRotate(float angle)
     {
         isRotating = true;
-
         float elapsedTime = 0f;
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + angle);
@@ -93,27 +74,26 @@ public class ScenarioSpin : MonoBehaviour
             yield return null;
         }
 
-        transform.rotation = endRotation; // 确保最终角度准确
+        transform.rotation = endRotation;
         isRotating = false;
     }
 
-    // Update the UI to display current counters
     void UpdateUI()
     {
-        if (rotationCounterText != null)
+        if (movesCounterText != null)
         {
-            rotationCounterText.text = "Rotations Left: " + remainingRotations;
-        }
-
-        if (gravityCounterText != null)
-        {
-            gravityCounterText.text = "Gravity Flips Left: " + remainingGravityFlips;
+            movesCounterText.text = "Moves Left: " + movesLeft;
         }
     }
 
+    public void DisableMoves()
+    {
+        canMove = false;
+    }
     public void DisableRotation()
     {
-        canRotate = false;
+        // canRotate = false;
     }
+
 
 }
