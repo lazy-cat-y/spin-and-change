@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ending : MonoBehaviour
 {
     private bool isEnding = false;
+    public GameObject endingText;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        endingText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class Ending : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("Ending OnTriggerEnter2D");
+        // Debug.Log("Ending OnTriggerEnter2D");
 
         if (isEnding)
         {
@@ -42,6 +44,7 @@ public class Ending : MonoBehaviour
         {
             scenarioSpin.DisableRotation();
         }
+        endingText.SetActive(true);
     }
 
 }
