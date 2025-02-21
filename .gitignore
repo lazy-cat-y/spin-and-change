@@ -29,3 +29,5 @@ UserSettings/
 .DS_Store
 *.swp
 *.swo
+
+spin-and-change/*
